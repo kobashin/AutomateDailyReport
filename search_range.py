@@ -1,3 +1,5 @@
+# ref : https://qiita.com/yuta-38/items/337059e1eafab3582851
+
 import win32com.client
 from pathlib import Path
 import locale
