@@ -20,11 +20,15 @@ text_today = today.strftime("%Y/%#m/%#d")
 print(text_today)
 
 for row_count in range(1, 16):
-    print(str(row_count))
-    # print(worksheet.Cells.Item(row_count, 1).Value)
-    print(worksheet.Cells.Item(row_count, 1).Text)
-    # print(worksheet.Cells.Item(row_count, 1).Formula)
-    # print(worksheet.Cells.Item(row_count, 1).Address)
-
     if text_today in worksheet.Cells.Item(row_count, 1).Text:
         print("日付が見つかりました")
+        print(str(row_count))
+        print(worksheet.Cells.Item(row_count, 1).Value)
+        print(worksheet.Cells.Item(row_count, 1).Text)
+        print(worksheet.Cells.Item(row_count, 1).Formula)
+        print(worksheet.Cells.Item(row_count, 1).Address)
+
+        splitted = worksheet.Cells.Item(row_count, 1).Address.split('$')
+        rng = "{}:{}".format(worksheet.Cells.Item(row_count, 1).Address, '$J$' + str(int(splitted[2]) + 10))
+        print(rng)
+
